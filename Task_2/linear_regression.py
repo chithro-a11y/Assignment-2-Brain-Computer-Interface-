@@ -34,9 +34,12 @@ print("R² Score:", r2_score(y_test, y_pred))
 print("Intercept:", model.intercept_)
 print("Coefficients:", model.coef_)
 
+# Mean Squared Error: 755664686763.8444
+# R² Score: 0.7312408811520021
+#Intercept: -30483.519721625373
+#Coefficients: [ 4.48345017e+05  2.97709974e+05  4.14858043e+05  8.40283028e+05  9.41067280e+05  7.23137375e+05 -5.75386662e+03 -4.01516137e+05 2.43115772e+02  1.71253577e+05  8.79163921e+05  4.39563756e+052.90621432e+05]
 
-
-#-- Plotting-----
+#-- Plotting model (Actual vs Predicted)-----
 
 plt.figure(figsize=(6,6))
 plt.scatter(y_test, y_pred, alpha=0.6)
@@ -48,5 +51,6 @@ plt.xlabel("Actual Price")
 plt.ylabel("Predicted Price")
 plt.title("Actual vs Predicted House Prices")
 plt.show()
+
 
 

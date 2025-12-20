@@ -17,10 +17,11 @@ y  = data['price']                   # Output : 'price' to be predicted
 
 features = ['mainroad', 'guestroom', 'basement', 'hotwaterheating', 'airconditioning', 'prefarea', 'furnishingstatus']
 
-ct = ColumnTransformer(transformers=[('encoder', OneHotEncoder(drop='first'), features)], remainder='passthrough')   # Keeps the other columns unaffected
-X = ct.fit_transform(X) 
 
 X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=10)        # Training the model by considering 20% of the dataset, and the rest as test-set
+
+ct = ColumnTransformer(transformers=[('encoder', OneHotEncoder(drop='first'), features)], remainder='passthrough')   # Keeps the other columns unaffected
+X = ct.fit_transform(X) 
 
 model = LinearRegression()
 model.fit(X_train, y_train)   
@@ -32,4 +33,5 @@ print("Mean Squared Error:", mean_squared_error(y_test, y_pred))
 print("R² Score:", r2_score(y_test, y_pred))
 print("Intercept:", model.intercept_)
 print("Coefficients:", model.coef_)
+
 
